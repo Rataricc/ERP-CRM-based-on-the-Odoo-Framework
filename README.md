@@ -69,3 +69,31 @@ python odoo-bin -r TU_USUARIO -w TU_CONTRASEÑA --addons-path=addons -d TU_BASE_
 **Permite que lo puedas empezar a usar desde la interfaz de Odoo**
 
 '🧩 Recordá que el nombre debe coincidir exactamente con el nombre de la carpeta del módulo personalizado.'
+
+## 🧽 Limpieza de archivos .pyc (opcional)
+
+*En algunos casos puede ser necesario limpiar archivos .pyc para evitar errores con archivos cacheados:*
+
+### En Linux o WSL:
+
+```bash
+find . -name "*.pyc" -delete
+```
+
+### En PowerShell (Windows):
+
+```bash
+Get-ChildItem -Recurse -Include *.pyc | Remove-Item
+```
+
+*🧹 Esto elimina los archivos .pyc (compilados de Python) que pueden causar problemas si hiciste cambios en los .py.*
+
+*Para crear un modulo*
+**Notas: example:**
+```bash
+python odoo-bin scaffold school modules
+```
+**Para actualizar un modulo/addons:**
+```bash
+python odoo-bin -r TU_USUARIO -w TU_CONTRASEÑA --addons-path=addons,addons -d odoo -u web
+```
